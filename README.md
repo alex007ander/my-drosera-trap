@@ -1,30 +1,30 @@
-# Drosera Trap Example
+# My Drosera Trap
 
-This repository contains a working example of a custom trap deployed and successfully triggered in the **Drosera test network** using the `ethereum-hoodi-rpc` endpoint.
+A Drosera trap contract for the Ethereum-Hoodi testnet, designed to react to significant changes in block numbers over a short interval.
 
-## ✅ Features
+## Description
 
-- Custom Solidity trap contract that emits a log when a new block is detected.
-- Drosera operator configured and successfully tested.
-- Logs and dashboard screenshots included as evidence.
+This trap collects the current block number and compares it to a previous sample. If the block delta between samples exceeds a threshold (default: 3), the trap triggers a response.
 
-## 📂 Contents
+The project is intended for testing with [Drosera](https://github.com/drosera-network/drosera) operators on the Ethereum-Hoodi testnet.
 
-- `src/`: Solidity source code of the trap.
-- `images/`: Screenshots of Drosera dashboard and terminal logs.
-- `README.md`: This file.
+## Components
 
-## 🚀 Deployment Summary
+- `BlockDeltaTrap.sol` — Solidity smart contract implementing the ITrap interface
+- `BlockAlertReceiver.sol` — contract that receives and logs alerts
+- `drosera.toml` — configuration file for local operator
+- `/images` — screenshots showing successful trap activation and logs
 
-- Chain ID: `560048`
+## Deployment
+
+The trap was deployed and tested on:
 - RPC: `https://ethereum-hoodi-rpc.publicnode.com`
-- Drosera RPC: `https://relay.hoodi.drosera.io`
-- Trap Address: `0xadd6fbcdBE2c98cfe024C909cdBfd2fbCb4e5Ca4`
+- Chain ID: `560048`
 
-## 🖼 Screenshots
+## Author
 
-### Operator Dashboard
-![Dashboard](images/dashboard.png)
+Created by [alex007ander](https://github.com/alex007ander)
 
-### Execution Logs
-![Logs](images/logs.png)
+## License
+
+This project is licensed under the MIT License.
