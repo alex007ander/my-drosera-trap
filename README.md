@@ -1,87 +1,30 @@
-# Drosera Trap Foundry Template
+# Drosera Trap Example
 
-This repo is for quickly bootstrapping a new Drosera project. It includes instructions for creating your first trap, deploying it to the Drosera network, and updating it on the fly.
+This repository contains a working example of a custom trap deployed and successfully triggered in the **Drosera test network** using the `ethereum-hoodi-rpc` endpoint.
 
-[![view - Documentation](https://img.shields.io/badge/view-Documentation-blue?style=for-the-badge)](https://dev.drosera.io "Project documentation")
+## ✅ Features
 
-## Configure dev environment
+- Custom Solidity trap contract that emits a log when a new block is detected.
+- Drosera operator configured and successfully tested.
+- Logs and dashboard screenshots included as evidence.
 
-```bash
-curl -L https://foundry.paradigm.xyz | bash
-foundryup
+## 📂 Contents
 
-# The trap-foundry-template utilizes node modules for dependency management
-# install Bun (optional)
-curl -fsSL https://bun.sh/install | bash
+- `src/`: Solidity source code of the trap.
+- `images/`: Screenshots of Drosera dashboard and terminal logs.
+- `README.md`: This file.
 
-# install node modules
-bun install
+## 🚀 Deployment Summary
 
-# install vscode (optional)
-# - add solidity extension JuanBlanco.solidity
+- Chain ID: `560048`
+- RPC: `https://ethereum-hoodi-rpc.publicnode.com`
+- Drosera RPC: `https://relay.hoodi.drosera.io`
+- Trap Address: `0xadd6fbcdBE2c98cfe024C909cdBfd2fbCb4e5Ca4`
 
-# install drosera-cli
-curl -L https://app.drosera.io/install | bash
-droseraup
-```
+## 🖼 Screenshots
 
-open the VScode preferences and Select `Soldity: Change workpace compiler version (Remote)`
+### Operator Dashboard
+![Dashboard](images/dashboard.png)
 
-Select version `0.8.12`
-
-## Quick Start
-
-### Hello World Trap
-
-The drosera.toml file is configured to deploy a simple "Hello, World!" trap. Ensure the drosera.toml file is set to the following configuration:
-
-```toml
-response_contract = "0xdA890040Af0533D98B9F5f8FE3537720ABf83B0C"
-response_function = "helloworld(string)"
-```
-
-To deploy the trap, run the following commands:
-
-```bash
-# Compile the Trap
-forge build
-
-# Deploy the Trap
-DROSERA_PRIVATE_KEY=0x.. drosera apply
-```
-
-After successfully deploying the trap, the CLI will add an `address` field to the `drosera.toml` file.
-
-Congratulations! You have successfully deployed your first trap!
-
-### Response Trap
-
-You can then update the trap by changing its logic and recompling it or changing the path field in the `drosera.toml` file to point to the Response Trap.
-
-The Response Trap is designed to trigger a response at a specific block number. To test the Response Trap, pick a future block number and update the Response Trap.
-Specify a response contract address and function signature in the drosera.toml file to the following:
-
-```toml
-response_contract = "0xdA890040Af0533D98B9F5f8FE3537720ABf83B0C"
-response_function = "responseCallback(uint256)"
-```
-
-Finally, deploy the Response Trap by running the following commands:
-
-```bash
-# Compile the Trap
-forge build
-
-# Deploy the Trap
-DROSERA_PRIVATE_KEY=0x.. drosera apply
-```
-
-> Note: The `DROSERA_PRIVATE_KEY` environment variable can be used to deploy traps. You can also set it in the drosera.toml file as `private_key = "0x.."`.
-
-## Testing
-
-Example tests are included in the `tests` directory. They simulate how Drosera Operators execute traps and determine if a response should be triggered. To run the tests, execute the following command:
-
-```bash
-forge test
-```
+### Execution Logs
+![Logs](images/logs.png)

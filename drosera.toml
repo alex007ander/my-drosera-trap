@@ -1,17 +1,23 @@
-ethereum_rpc = "https://ethereum-holesky-rpc.publicnode.com"
-drosera_rpc = "https://relay.testnet.drosera.io"
-eth_chain_id = 17000
-drosera_address = "0xea08f7d533C2b9A62F40D5326214f39a8E3A32F8"
+ethereum_rpc = "https://ethereum-hoodi-rpc.publicnode.com"
+drosera_rpc = "https://relay.hoodi.drosera.io"
+eth_chain_id = 560048
+drosera_address = "0x91cB447BaFc6e0EA0F4Fe056F5a9b1F14bb06e5D"
 
 [traps]
 
 [traps.mytrap]
-path = "out/HelloWorldTrap.sol/HelloWorldTrap.json"
-response_contract = "0xdA890040Af0533D98B9F5f8FE3537720ABf83B0C"
-response_function = "helloworld(string)"
+path = "out/BlockDeltaTrap.sol/BlockDeltaTrap.json"
+response_contract = "0x24221077C77fAb581d1A6c6427a5b441E8A4616e"
+response_function = "logBlockChange(uint256,uint256)"
 cooldown_period_blocks = 33
 min_number_of_operators = 1
 max_number_of_operators = 2
 block_sample_size = 10
-private = true
-whitelist = []
+private_trap = true
+whitelist = ["0xa9f801520ba6c79453b93473ceba7dbe48beea67"]
+address = "0xadd6fbcdBE2c98cfe024C909cdBfd2fbCb4e5Ca4"
+
+[drosera]
+token = "0x0000000000000000000000000000000000000001"
+
+
